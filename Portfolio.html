@@ -1,40 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Personal Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naveena | Creative Portfolio</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
-      background-color: #f4f4f4;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
     }
-    header {
-      background-color: #333;
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(120deg, #667eea, #764ba2);
       color: #fff;
-      padding: 20px;
+    }
+
+    /* Floating Background Circles */
+    .circle {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.6;
+      z-index: -1;
+    }
+
+    .c1 { width: 300px; height: 300px; background: #ff9a9e; top: 10%; left: 5%; }
+    .c2 { width: 250px; height: 250px; background: #a1c4fd; bottom: 15%; right: 10%; }
+    .c3 { width: 200px; height: 200px; background: #fbc2eb; top: 50%; right: 40%; }
+
+    /* Header */
+    header {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-    }
-    .container {
       padding: 20px;
     }
-    .card {
-      background: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 6px;
-      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+
+    header h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
     }
+
+    header span {
+      color: #ffdf6c;
+    }
+
+    header p {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    header button {
+      margin-top: 30px;
+      padding: 14px 36px;
+      background: linear-gradient(90deg, #ffdf6c, #ffb347);
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    header button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Glass Section */
+    section {
+      padding: 80px 8%;
+    }
+
     h2 {
-      color: #333;
-    }
-    footer {
-      background-color: #333;
-      color: white;
       text-align: center;
-      padding: 10px;
+      margin-bottom: 50px;
+      font-size: 2.3rem;
+      letter-spacing: 1px;
     }
-    button {
+
+    .glass {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 30px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      padding: 8px 0;
+    }
+
+    ul li::before {
+      content: "➤ ";
+      color: #ffdf6c;
+    }
+
+    /* Timeline for Education */
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: #ffdf6c;
+    }
+
+    .timeline-item {
+      margin-bottom: 30px;
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      font-size: 1.1rem;
+      margin: 10px 0;
+    }
+
+    .contact button {
+      margin-top: 25px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      border: none;
+      background: linear-gradient(90deg, #43cea2, #185a9d);
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      opacity: 0.8;
+    }
+
+    @media(max-width: 600px) {
+      header h1 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Decorative Circles -->
+  <div class="circle c1"></div>
+  <div class="circle c2"></div>
+  <div class="circle c3"></div>
+
+  <!-- Hero -->
+  <header>
+    <div>
+      <h1>Hello, I'm <span>Naveena</span></h1>
+      <p>Computer Science Student • Creative Developer • Tech Enthusiast</p>
+      <button onclick="scrollToSection('about')">Discover More</button>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="glass">
+      <p>
+        I am Naveena, a Computer Science and Engineering student with a passion
+        for software development, web technologies, and problem solving. I enjoy
+        exploring innovative ideas and transforming them into functional systems.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section>
+    <h2>Skills</h2>
+    <div class="grid">
+      <div class="glass"><ul><li>C Programming</li><li>Python</li><li>Java</li></ul></div>
+      <div class="glass"><ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul></div>
+      <div class="glass"><ul><li>MySQL</li><li>Database Management</li></ul></div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section>
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="glass">
+        <h3>Stock Management System</h3>
+        <p>
+          Designed and implemented a Stock Management System integrating frontend,
+          backend logic, and database connectivity to efficiently manage inventory,
+          transactions, and reports.
+        </p>
+      </div>
+
+      <div class="glass">
+        <h3>School Management System (Python)</h3>
+        <p>
+          Developed a School Management System using Python to manage student
+          records, attendance, staff details, and academic information. The system
+          improves data organization, reduces manual work, and ensures efficient
+          administrative operations.
+        </p>
+      </div>
+
+      <div class="glass">
+        <h3>AI Medical System (Python)</h3>
+        <p>
+          Built an AI Medical System using Python to handle patient records,
+          appointment scheduling, and diagnostic reports. Integrated machine learning
+          models assist in predicting medical conditions and enhancing decision-making
+          for healthcare professionals.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interests -->
+  <section>
+    <h2>Areas of Interest</h2>
+    <div class="grid">
+      <div class="glass">Full Stack Development</div>
+      <div class="glass">Cyber Security</div>
+      <div class="glass">Software Development</div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section>
+    <h2>Education</h2>
+    <div class="glass timeline">
+      <div class="timeline-item">
+        <h3>B.E – Computer Science and Engineering</h3>
+        <p>K.S. Rangasamy College of Technology</p>
+        <p>CGPA: 9.6 | 2023 – 2027</p>
+      </div>
+      <div class="timeline-item">
+        <h3>HSC</h3>
+        <p>Government Girls Higher Secondary School</p>
+        <p>90% | 2022 – 2023</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Internships & Certifications -->
+  <section>
+    <h2>Internships & Certifications</h2>
+    <div class="grid">
+      <div class="glass">
+        <h3>Internships</h3>
+        <ul>
+          <li>Infosys Springboard – Pragati</li>
+          <li>Edunet Foundation – AI Internship</li>
+        </ul>
+      </div>
+      <div class="glass">
+        <h3>Certifications</h3>
+        <ul>
+          <li>NPTEL Courses</li>
+          <li>MATLAB Onramp</li>
+          <li>Oracle Certified Foundations Associate</li>
+          <li>Ubuntu Linux Training</li>
+          <li>Tata Crucible Campus Quiz 2025</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact">
+    <h2>Contact Me</h2>
+    <div class="glass">
+      <p>Email: navimdk2006@com</p>
+      <p>Phone: 9944748697</p>
+      <button onclick="showMessage()">Let's Connect</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Naveena | Creative Portfolio</p>
+  </footer>
+
+  <script>
+    function showMessage() {
+      alert("Thank you for connecting with me!");
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>    button {
       padding: 10px 15px;
       background-color: #007BFF;
       color: white;
